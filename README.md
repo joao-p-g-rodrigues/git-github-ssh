@@ -128,7 +128,7 @@ git checkout -b "feature"/"username"/"listar-produtos-estabelecimento"
 - Caso a atividade seja especialmente complexa pode-se criar um [Diagrama de Sequencia](https://creately.com/blog/pt/diagrama/tutorial-do-diagrama-de-sequencia/) ou outros.
 - Crie [testes unitários](https://pt.wikipedia.org/wiki/Teste_de_unidade).
 
-## Commits
+## Commits [padroniszaçao de comits](https://dev.to/vitordevsp/padronizacao-de-commit-com-commitlint-husky-e-commitizen-3g1n)
 - inicie o expediente atualizando a sua branch com a develop.
 ```
 git pull origin develop
