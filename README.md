@@ -1,3 +1,2 @@
-README.md
-
-test 2
+# estudando-git
+tutorial como usar o git
