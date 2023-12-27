@@ -1,0 +1,480 @@
+------------------------------------------------------------------------------------------------------
+COMANDOS :   
+------------------------------------------------------------------------------------------------------
+   MINGW64(master)
+   $ git --help
+
+         usage: git [-v | --version] 
+                     [-h | --help] 
+                     [-C <path>] 
+                     [-c <name>=<value>]
+                     [--exec-path[=<path>]] 
+                     [--html-path]
+                     [--man-path] 
+                     [--info-path]
+                     [-p | --paginate | -P | --no-pager]
+                     [--no-replace-objects]
+                     [--bare]
+                     [--git-dir=<path>]
+                     [--work-tree=<path>]
+                     [--namespace=<name>]
+                     [--super-prefix=<path>]
+                     [--config-env=<name>=<envvar>]
+                  <command> [<args>]
+
+      These are common Git commands used in various situations:
+
+         start a working area (see also: git help tutorial)
+            clone     Clone a repository into a new directory
+            init      Create an empty Git repository or reinitialize an existing one
+
+         work on the current change (see also: git help everyday)
+            add       Add file contents to the index
+            mv        Move or rename a file, a directory, or a symlink
+            restore   Restore working tree files
+            rm        Remove files from the working tree and from the index
+
+         examine the history and state (see also: git help revisions)
+            bisect    Use binary search to find the commit that introduced a bug
+            diff      Show changes between commits, commit and working tree, etc
+            grep      Print lines matching a pattern
+            log       Show commit logs
+            show      Show various types of objects
+            status    Show the working tree status
+
+         grow, mark and tweak your common history
+            branch    List, create, or delete branches
+            commit    Record changes to the repository
+            merge     Join two or more development histories together
+            rebase    Reapply commits on top of another base tip
+            reset     Reset current HEAD to the specified state
+            switch    Switch branches
+            tag       Create, list, delete or verify a tag object signed with GPG
+
+         collaborate (see also: git help workflows)
+            fetch     Download objects and refs from another repository
+            pull      Fetch from and integrate with another repository or a local branch
+            push      Update remote refs along with associated objects
+
+         'git help -a' and 'git help -g' list available subcommands and some
+         concept guides. See 'git help <command>' or 'git help <concept>'
+         to read about a specific subcommand or concept.
+         See 'git help git' for an overview of the system.
+-----------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------
+COMO INICIALIZAR DIRETORIO 
+----------------------------------------------------------------------------------------------------------------------
+   MINGW64(master) 
+   $ git init
+
+      Initialized empty Git repository in 
+      D:/jao/atividades joao pedro g. rodrigues/programing/repost-tree/git/.git/
+------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------
+RASTREANDO ARQUIVOS VERIFICANDO STATUS E COMMITS 
+----------------------------------------------------------------------------------------------------------------
+   MINGW64(master)
+   $ git status
+
+      On branch master
+
+      No commits yet
+
+      Untracked files:
+      (use "git add <file>..." to include in what will be committed)
+            meu texto.txt
+
+      nothing added to commit but untracked files present (use "git add" to track)
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+COMO ADICIONAR ARQUIVOS AO CONTROLE DE VERSÃO
+------------------------------------------------------------------------------------------------------
+   MINGW64(master)
+   $ git add "meu texto.txt"
+
+   MINGW64(master)
+   $ git status
+
+      On branch master
+
+      No commits yet
+
+      Changes to be committed:
+      (use "git rm --cached <file>..." to unstage)
+      new file:   meu texto.txt
+
+   MINGW64(master)
+   $ git commit -m "commit inicial"
+      Author identity unknown
+
+      *** Please tell me who you are.
+
+      Run
+
+      git config --global user.email "you@example.com"
+      git config --global user.name "Your Name"
+
+      to set your account's default identity.
+      Omit --global to set the identity only in this repository.
+
+      fatal: unable to auto-detect email address (got '.(none)')
+
+      MINGW64(master)
+      $ git config --global user.email "joao.p.rodrigues@to.estudante.senai.br"
+
+      MINGW64(master)
+      $ git config --global user.name "João Pedro Gonçalves Rodrigues"
+
+   MINGW64(master)
+   $ git commit -m "commit inicial"
+      
+      [master (root-commit) d190596] commit inicial
+      1 file changed, 0 insertions(+), 0 deletions(-)
+      create mode 100644 meu texto.txt
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+como enviar alterações usando 'git push'
+------------------------------------------------------------------------------------------------------
+   MINGW64(master)
+   $ git push
+
+      fatal: No configured push destination.
+      Either specify the URL from the command-line or configure a remote repository using
+
+         git remote add <name> <url>
+
+      and then push using the remote name
+
+         git push <name>
+
+
+      MINGW64(master)
+      $ git remote add origin https://github.com/joao-p-g-rodrigues/estudando-git
+
+   MINGW64(master)
+   $ git push
+   
+      fatal: The current branch master has no upstream branch.
+      To push the current branch and set the remote as upstream, use
+
+         git push --set-upstream origin master
+
+      To have this happen automatically for branches without a tracking
+      upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+      MINGW64(master)
+      $ git push --set-upstream origin master
+         Enumerating objects: 7, done.
+         Counting objects: 100% (7/7), done.
+         Delta compression using up to 4 threads
+         Compressing objects: 100% (7/7), done.
+         Writing objects: 100% (7/7), 20.85 KiB | 2.98 MiB/s, done.  
+         Total 7 (delta 0), reused 0 (delta 0), pack-reused 0        
+         remote: 
+         remote: Create a pull request for 'master' on GitHub by visiting:
+         remote:      https://github.com/joao-p-g-rodrigues/estudando * [new branch]      master -> master
+         branch 'master' set up to track 'origin/master'.
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+ciclo de atualização do código
+------------------------------------------------------------------------------------------------------
+   MINGW64(master)
+   $ git status
+   
+      On branch master
+      Your branch is up to date with 'origin/master'.
+
+      Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git restore <file>..." to discard changes in working directory)
+            modified:   meu texto.txt
+
+      no changes added to commit (use "git add" and/or "git commit -a")
+
+   MINGW64(master)
+   $ git add .
+
+   MINGW64(master)
+   $ git status
+      
+      On branch master
+      Your branch is up to date with 'origin/master'.
+
+      Changes to be committed:
+      (use "git restore --staged <file>..." to unstage)
+            modified:   meu texto.txt
+
+   MINGW64(master)
+   $  git commit -m "atualizndo linhas"
+      [master 23eda1a] atualizndo linhas
+      1 file changed, 15 insertions(+), 12 deletions(-)
+
+   MINGW64(master)
+   $ git push
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+como verificar histórico de atualizações 
+------------------------------------------------------------------------------------------------------
+   MINGW64(master)
+   $ git reflog
+      23eda1a (HEAD -> master, origin/master) HEAD@{0}: commit: atualizndo linhas
+      9798407 HEAD@{1}: commit (initial): commit inicial
+------------------------------------------------------------------------------------------------------
+como navegar entre as versões do código
+------------------------------------------------------------------------------------------------------
+   MINGW64(master)
+   $ git reset --hard 23eda1a
+   
+
+   MINGW64(master)
+   $ git reflog
+
+      23eda1a (HEAD -> master, origin/master) HEAD@{0}: checkout: moving from master to master
+      23eda1a (HEAD -> master, origin/master) HEAD@{1}: reset: moving to 23eda1a
+      23eda1a (HEAD -> master, origin/master) HEAD@{2}: commit: atualizndo linhas
+      9798407 HEAD@{3}: commit (initial): commit inicial
+
+   MINGW64(master)
+   $ git reset --hard 23eda1a
+      
+      HEAD is now at 23eda1a atualizndo linhas
+
+   MINGW64(master)
+   $ git reflog
+      42eab33 (HEAD -> master, origin/master) HEAD@{0}: reset: moving to 42eab33
+      d190596 HEAD@{1}: reset: moving to d190596
+      42eab33 (HEAD -> master, origin/master) HEAD@{2}: commit: permitir cadastro
+      d190596 HEAD@{3}: commit (initial): commit inicial
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+O que sao Branchs
+------------------------------------------------------------------------------------------------------
+caminhos diferentes para o ersionamento e armazenamento do codigo 
+que esta sendo desenvolvido por uma equipe
+
+   sobre git flow :
+   ------------------------------------------------------------------------------------------------------
+      O Git Flow é um modelo, uma estratégia ou, ainda, um fluxo de trabalho muito utilizado 
+      por equipes de desenvolvimento de software. Ele se destaca por auxiliar na
+      organização do versionamento de códigos.
+
+      O Git Flow é recomendado para projetos que utilizam versionamento semântico (semantic versioning) 
+      ou que precisam oferecer suporte a várias versões de seu software.
+
+      Segundo o próprio autor, Vincent Driessen, se o projeto exige entrega contínua, 
+      como normalmente ocorre em projetos, este modelo não é recomendado para esse tipo de cenário. 
+      Porque geralmente com o Git Flow são geradas branches de longa duração e branches de longa duração 
+      atrapalham a entrega contínua.
+
+      A utilização do Git Flow também se torna recomendado para projetos que existam uma grande 
+      quantidade de pessoas “commitando” dentro de um repositório, ou para projetos que possuem 
+      um ciclo de entrega agendada.
+
+      O Git Flow trabalha com duas branches principais, a Develop e a Master, que duram para sempre; 
+      e três branches de suporte, Feature, Release e Hotfix, que são temporários e duram até realizar 
+      o merge com as branches principais.
+
+      Então, ao invés de uma única branch Master, esse fluxo de trabalho utiliza duas branches principais 
+      para registrar o histórico do projeto. A branch Master armazena o histórico do lançamento oficial, 
+      e a branch Develop serve como uma ramificação de integração para recursos.
+
+      É ideal que todos os commits na branch Master sejam marcados com um número de versão. 
+      Na imagem abaixo, vemos como é a estrutura do fluxo do Git Flow:
+
+         Branch Master/Main
+            Principal branch, aqui é onde temos todo o código de produção. Todas as novas funcionalidades 
+            que estão sendo desenvolvidas, em algum momento, serão mescladas ou associadas a Master. 
+            As formas de interagir com essa branch são através de uma Hotfix ou de uma nova Release.
+
+         Branch Develop
+            É a branch onde fica o código do próximo deploy. Ela serve como uma linha do tempo com 
+            os últimos desenvolvimentos, isso significa que ela possui funcionalidades que ainda não 
+            foram publicadas e que posteriormente vão ser associadas com a branch Master.
+
+         Branch Feature
+            São branches utilizadas para o desenvolvimento de funcionalidades específicas. É recomendável 
+            que essas branches sigam uma convenção de nome, a convenção mais utilizada é iniciar o nome 
+            das branches com feature, por exemplo, “feature/alura-forum”.
+            É importante saber que essas features branches são criadas sempre a partir da branch Develop. 
+            Portanto, quando finalizada, elas são removidas após realizar o merge com a Branch Develop. 
+            Se tivermos dez funcionalidades a serem desenvolvidas, criaremos dez branches independentes.
+            importante salientar que as branches de features não podem ter interação com a branch master, apenas com a branch develop.
+
+         Branch Hotfix
+            É uma branch criada a partir da master para realizar correções imediatas encontradas 
+            no sistema em produção. Quando concluída, ela é excluída após realizar o merge com as branches 
+            Master e Develop. Temos uma branch de hotfix para cada hotfix que precisamos implementar!
+            A grande diferença entre Feature Branches e Branches de Hotfix é que os Hotfix são criados 
+            a partir da Branch Master e quando os finalizamos, eles são mesclados tanto na Branch Master 
+            quanto na branch de desenvolvimento. Isso ocorre porque o bug está em ambos os ambientes.
+            Além disso, quando fechamos um Hotfix Branch, temos que criar uma tag com a nova versão 
+            do projeto. Isso porque cada mudança que fazemos na Branch Master precisa de uma tag que 
+            a represente.
+
+         Branch Release
+            Uma vez que uma etapa de desenvolvimento esteja concluída, teremos em nossa Branch Develop 
+            todas as features e Hotfix mesclados. Então, se quisermos ter todas essas novas funcionalidades 
+            na Branch Master, teremos que criar uma Branch de Release.
+            A Branch Release serve como ponte para fazer o merge da Develop para a Master.
+            Ela funciona como ambiente de homologação e é removida após realizar os testes do merge 
+            com a Master. Caso seja encontrado algum bug e haja alguma alteração, ela também deve 
+            ser sincronizada com a Develop.
+            Por fim, quando fechamos uma Branch Release, 
+            temos que criar uma tag com a nova versão de lançamento do software,
+            para que possamos ter um histórico completo do desenvolvimento.
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+criando branches  
+------------------------------------------------------------------------------------------------------
+   MINGW64 (master) ver branch q esta sendo trabalhada 
+   $ git branch
+      * master
+
+   MINGW64 (master) para criar a nova bench e so adicionar o nome para funcionalidade ou fluxo de vercionamento desejado
+   $ git branch staging
+
+   MINGW64 (master)
+   $ git branch
+      * master
+      staging
+
+   MINGW64 (master) para trocar de branches e passar a versionar na branch necessaria
+   $ git checkout staging 
+      Switched to branch 'staging'
+
+   MINGW64 (staging) 
+   $ git branch
+      master
+      * staging
+
+   MINGW64 (staging)
+   $ git status
+      On branch staging
+      Your branch is up to date with 'origin/staging'.
+
+      Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git restore <file>..." to discard changes in working directory)
+            modified:   meu texto.txt
+
+      no changes added to commit (use "git add" and/or "git commit -a")
+
+   MINGW64 (staging)
+   $ git add "meu texto.txt"
+
+   MINGW64 (staging)
+   $ git commit -m "adicionando nova branch"
+      [staging 10bf9a6] adicionando nova branch
+      1 file changed, 2 deletions(-)
+
+   MINGW64 (staging)
+   $ git status
+      On branch staging
+      Your branch is ahead of 'origin/staging' by 1 commit.
+      (use "git push" to publish your local commits)
+
+      nothing to commit, working tree clean
+
+   MINGW64(staging)
+   $ git push --set-upstream origin staging
+
+   MINGW64 (staging)
+   $ git push
+      Enumerating objects: 5, done.
+      Counting objects: 100% (5/5), done.
+      Delta compression using up to 4 threads
+      Compressing objects: 100% (3/3), done.
+      Writing objects: 100% (3/3), 330 bytes | 330.00 KiB/s, done.
+      Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+      remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+      To https://github.com/joao-p-g-rodrigues/estudando-git
+         3cf7fc5..10bf9a6  staging -> staging
+------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------
+git merge 
+como unir o codigo
+------------------------------------------------------------------------------------------------------
+   
+   MINGW64(master)
+   $ git checkout staging
+      Switched to branch 'staging'
+      Your branch is up to date with 'origin/staging'.
+
+   MINGW64(staging)
+   $ git status
+      On branch staging
+      Your branch is up to date with 'origin/staging'.
+
+      Changes not staged for commit:
+      (use "git add <file>..." to update what will be committed)
+      (use "git restore <file>..." to discard changes in working directory)
+            modified:   meu texto.txt
+
+      no changes added to commit (use "git add" and/or "git commit -a")
+
+   MINGW64(staging)
+   $ git add "meu texto.txt"
+
+   MINGW64(staging)
+   $ git status
+      On branch staging
+      Your branch is up to date with 'origin/staging'.
+
+      Changes to be committed:
+      (use "git restore --staged <file>..." to unstage)
+            modified:   meu texto.txt
+
+   MINGW64(staging)
+   $ git commit -m
+      error: switch `m' requires a value
+
+   MINGW64(staging)
+   $ git commit -m "atual merge"
+      [staging 7bea9d9] atual merge
+      1 file changed, 66 insertions(+), 66 deletions(-)
+
+   MINGW64(staging)
+   $ git push
+      Enumerating objects: 5, done.
+      Counting objects: 100% (5/5), done.
+      Delta compression using up to 4 threads
+      Compressing objects: 100% (3/3), done.
+      Writing objects: 100% (3/3), 658 bytes | 658.00 KiB/s, done.
+      Total 3 (delta 2), reused 0 (delta 0), pack-reused 0
+      remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+      To https://github.com/joao-p-g-rodrigues/estudando-git
+         cca7261..7bea9d9  staging -> staging
+
+   MINGW64(staging)
+   $ git checkout master
+      Switched to branch 'master'
+      Your branch is up to date with 'origin/master'.
+
+   MINGW64(master)
+   $ git pull
+      Already up to date.
+
+   MINGW64(master)
+   $ git merge staging
+      Updating cca7261..7bea9d9
+      Fast-forward
+      meu texto.txt | 132 +++++++++++++++++++++++++++++-----------------------------
+      1 file changed, 66 insertions(+), 66 deletions(-)
+
+   MINGW64(master)
+   $ git push
+      Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+      To https://github.com/joao-p-g-rodrigues/estudando-git
+         cca7261..7bea9d9  master -> master
+------------------------------------------------------------------------------------------------------
+CICLO DE TRABALHO :
+   1°. GIT PULL DA BRANCH PRINCIPAL;
+   2°. GERAR NOVA BRANCH APARTIR DA BRANCH PRINCIPAL;
+   3°. TRABALHAR E ADICIONAR NOVAS FUNCIONALIDADES NA NOVA BRANCH QUE CRIOU;
+   4°. TESTAR E FINALIZAR TRABALHO NA BRANCH TEMPORÁRIA;
+   5°. GIT CHECKOUT NA BRANCH PRINCIPAL; 
+   6°. GIT PULL ;
+   7°. TESTAR ANTES DE MERGIAR(UNIR) O CODIGO DA BRANCH TEMPORÁRIA COM A BRANCH PRINCIPAL(TESTAR DEPOIS DE MERGIAR);
+   8°. GIT PUSH DA BRANCH PRINCIPAL;
+------------------------------------------------------------------------------------------------------
